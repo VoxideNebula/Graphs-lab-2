@@ -1,1 +1,64 @@
 
+public class Graph
+{
+    //fields
+    private Vertex vertexList[];
+    private int adjacencyMatrix[][];
+    
+    //constructor calls methods that read the input files
+    public Graph() 
+    { 
+        readLabels("labels.txt");
+        readAdjacencyMatrix("adjacency_matrix.txt");
+    } 
+
+    //using an integer passed in, finds the associated vertex in the vertexList 
+    //array and prints out the associated label
+    public void displayVertex(int vertexIndex)
+    {
+    
+    }
+    
+    //reads the adjacency matrix input file and saves it into the adjacencyMatrix 
+    //field
+    private void readAdjacencyMatrix(String filePath)
+    {
+    
+    }
+
+    //reads the labels input file, creates a new vertex for each label, and saves
+    //each new vertex into the vertexList field
+    private void readLabels(String filePath) 
+    {
+    
+    }
+
+    //implements the depth first search algorithm calling
+    //getAdjacentUnvisitedVertex() and displayVertex() as needed
+    public void depthFirstSearch()
+    {
+    
+    }
+
+    //implements the depth first search algorithm calling          
+    //getAdjacentUnvisitedVertex() and displayVertex() as needed
+    public void breadthFirstSearch()
+    {
+        
+    }
+
+    //implements the minimum spanning tree algorithm calling      
+    //getAdjacentUnvisitedVertex() and displayVertex() as needed
+    
+    public void minimum_spanning_tree()
+    {
+        
+    } 
+
+    //returns an unvisited vertex adjacent to the vertex indicated by vertexIndex 
+    //using the vertexList and adjacenyMatrix fields
+    public int getAdjacentUnvisitedVertex(int vertexIndex)
+    {
+        return 0;
+    }
+}
