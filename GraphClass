@@ -109,8 +109,22 @@ public class Graph
 
     //returns an unvisited vertex adjacent to the vertex indicated by vertexIndex 
     //using the vertexList and adjacenyMatrix fields
+    //IMPORTANT NOTE: returns -1 if no unvisited vertex
     public int getAdjacentUnvisitedVertex(int vertexIndex)
     {
-        return 0;
+        //for each column in the selected row (each other vertex for the selected vertex)
+        for (int i = 0; i < vertexList.length; i++)
+        {
+            //if the vertex is adjacent
+            if(adjacencyMatrix[vertexIndex][i] == 1)
+            {
+                //and if it has not been visited
+                if(!vertexList[i].wasVisited)
+                {
+                    return i;
+                }
+            }
+        }
+        return -1;
     }
 }
