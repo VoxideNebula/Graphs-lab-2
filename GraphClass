@@ -8,8 +8,15 @@ public class Graph
     //constructor calls methods that read the input files
     public Graph() 
     { 
+        try {
+            
         readLabels("labels.txt");
         readAdjacencyMatrix("adjacency_matrix.txt");
+        
+        } catch (IOException exception) 
+        {
+            System.out.println(exception.getMessage());
+	}
     } 
 
     //using an integer passed in, finds the associated vertex in the vertexList 
