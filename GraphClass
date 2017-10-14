@@ -21,16 +21,61 @@ public class Graph
     
     //reads the adjacency matrix input file and saves it into the adjacencyMatrix 
     //field
-    private void readAdjacencyMatrix(String filePath)
+    private void readAdjacencyMatrix(String filePath) throws IOException
     {
-    
+        // System.getProperty("user.dir") returns the directory the program is
+        // executed from,\\input.txt is appended to open our input.txt file
+	    FileReader fileReader = new FileReader(System.getProperty("user.dir") + "\\" + filePath); //THIS MAY NOT WORK
+	    BufferedReader textReader = new BufferedReader(fileReader);
+        
+        String lineFromFile;
+
+	    // the line from our BufferedReader must be assigned immediately to a variable
+        // as the reader will move on to the next line afterward
+        // while != null ensures we get the entirety of the message
+        
+        int currentRow = 0; //track the row in the adjacency matrix
+        while ((lineFromFile = textReader.readLine()) != null) {
+
+                // we continue to add our lines to our message until we reach the end of the
+                // file
+                
+                //for each column of the currentRow, read in the line of 
+                for (int i = 0; i < lineFromFile.length(); i++)
+                {
+                    int val = (int) (lineFromFile.charAt(i)) - 48; //change the char to an int
+                    adjacencyMatrix[currentRow][i] = val; //add it to adjacency matrix
+                }
+                currentRow++;
+        }
+        textReader.close();
     }
 
     //reads the labels input file, creates a new vertex for each label, and saves
     //each new vertex into the vertexList field
-    private void readLabels(String filePath) 
+    private void readLabels(String filePath) throws IOException
     {
-    
+        // System.getProperty("user.dir") returns the directory the program is
+        // executed from,\\input.txt is appended to open our input.txt file
+	    FileReader fileReader = new FileReader(System.getProperty("user.dir") + "\\" + filePath); //THIS MAY NOT WORK
+	    BufferedReader textReader = new BufferedReader(fileReader);
+        
+        String lineFromFile;
+
+	    // the line from our BufferedReader must be assigned immediately to a variable
+        // as the reader will move on to the next line afterward
+        // while != null ensures we get the entirety of the message
+        
+        while ((lineFromFile = textReader.readLine()) != null) {
+
+            // we continue to add our lines to our message until we reach the end of the
+            // file
+            for (int i = 0; i < lineFromFile.length(); i++)
+            {
+                vertexList[i] = new Vertex(lineFromFile.charAt(i));
+            }
+        }
+        textReader.close();
     }
 
     //implements the depth first search algorithm calling
